@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveH, moveV;
     private PlayerAnimation playerAnimation;
     public float moveSpeed = 1.0f;
+    public GameObject Panel;
 
     private void Awake()
     {
@@ -28,5 +31,13 @@ public class PlayerMovement : MonoBehaviour
         rb.MovePosition(currentPos + inputVector);
 
         playerAnimation.SetDirection(new Vector2(moveH, moveV));
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag =="CaveEnter")  
+        {
+            Panel.gameObject.SetActive(true);
+        }
     }
 }
