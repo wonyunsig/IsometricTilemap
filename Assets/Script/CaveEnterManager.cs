@@ -12,7 +12,7 @@ public class CaveEnterManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene("Scenes/PlayScene(Cave)");
+            SceneManager.LoadScene("Scenes/CaveScene");
         }
     }
 }
